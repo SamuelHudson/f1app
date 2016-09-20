@@ -1,0 +1,29 @@
+<section id="driverssection">
+  <div class="container-fluid">
+    <div ng-controller="driversController">
+      <div class="row form-group">
+        <div class="col-xs-4 col-xs-offset-4"><input type="text" ng-model="nameFilter" placeholder="Search by name..." class="form-control"/></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="text-center header">World Championship Table</p>
+        </div>
+      </div>
+      <table class="table">
+        <tbody>
+          <tr ng-repeat="driver in driversList | filter: nameFilter">
+            <td class="col-xs-1 col-xs-offset-7 hidden-xs"><img src="/img/f1.ico" alt="F1 image." id="f1icon"></td>
+            <td class="col-xs-1 text-center tabledata">{{$index + 1}}</td>
+            <td class="col-xs-1 text-center tabledata">
+              <a href="#/drivers/{{driver.Driver.driverId}}">
+              {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+              </a>
+            </td>
+            <td class="col-xs-1 text-center tabledata">{{driver.Constructors[0].name}}</td>
+            <td class="col-xs-1 text-center tabledata">{{driver.points}}</td>        
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

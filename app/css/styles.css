@@ -1,0 +1,85 @@
+a {
+	font-family: "Arial Black";
+	color: #7798AB;
+}
+
+a:visited {
+	font-family: "Arial Black";
+	color: #FFB249;
+}
+
+img {
+	display: block;
+	margin: auto;
+	width: 6%;
+}
+
+#driverimg {
+	display: block;
+	margin: auto;
+	width: 20%;
+	border-radius: 8px;
+}
+
+.header {
+	color:#DB4C40;
+	text-shadow: 3px 3px 3px #0F0F0F;
+	font-family: "Arial Black";
+	font-size: 3.25em;
+	font-style: oblique;
+}
+
+.tabledata {
+	font-family: "Arial Black";
+	color: #7798AB;
+	font-size: 1.50em;
+}
+
+#driverssection {
+	font-family: "Arial Black";
+	z-index: 1;
+	opacity: 1.0;
+	background-color: #E1DEE3;
+	color: #7798AB;
+	width: 100%;
+	margin: auto;
+	font-size: 100%;
+	display: block;
+}
+
+#f1icon {
+	display: block;
+	margin: auto;
+	height: 60%;
+	width: 30%;
+}
+
+#driverarticle {
+	position: relative;
+	display: block;
+	margin: auto;
+	width: 100%;
+	font-family: "Arial Black";
+	color: #7798AB;
+	font-size: 100%;
+}
+
+#driverarticle::after {
+	content: "";
+	background-image: url(/img/f1podium.jpg);
+	background-size: 100% 100%;
+	opacity: 0.2;
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+#drivertable {
+	font-family: "Arial Black";
+	color: #7798AB;
+	position: relative;
+}
+
