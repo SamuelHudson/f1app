@@ -44,7 +44,7 @@
     </div>
   </div>
 </article>
-<table class="table" id="drivertable">  
+<table class="table" id="drivertable" ng-init="init()">  
     <thead>
       <tr>
         <th class="col-xs-2 text-center">Round</th>
@@ -60,7 +60,7 @@
     </tr>
     <tr ng-repeat="race in races">
       <td class="col-xs-2 col-xs-offset-5 hidden-xs text-center tabledata">{{race.round}}</td>
-      <td class="col-xs-2 text-center tabledata"><img src="img/flags/{{race.Circuit.Location.country}}.png" class="hidden-xs"/>&nbsp;&nbsp;{{race.raceName}}</td>
+      <td class="col-xs-2 text-center tabledata"><img ng-src="img/flags/{{race.Circuit.Location.country}}.png" class="hidden-xs"/>&nbsp;&nbsp;{{race.raceName}}</td>
       <td class="col-xs-2 text-center tabledata">{{race.Results[0].Constructor.name}}</td>
       <td class="col-xs-2 text-center tabledata">{{race.Results[0].grid}}</td>
       <td class="col-xs-2 text-center tabledata">{{race.Results[0].position}}</td>
