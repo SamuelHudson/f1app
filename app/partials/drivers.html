@@ -1,6 +1,6 @@
 <section id="driverssection">
   <div class="container-fluid">
-    <div ng-controller="driversController">
+    <div ng-controller="driversController" ng-init="init()">
       <div class="row form-group">
         <div class="col-xs-4 col-xs-offset-4"><input type="text" ng-model="nameFilter" placeholder="Search by name..." class="form-control"/></div>
       </div>
@@ -37,7 +37,7 @@
             <td class="col-xs-1 col-xs-offset-2 hidden-xs tabledata text-center"><img src="/img/f1.ico" alt="F1 image." id="f1icon"></td>
             <td class="col-xs-2 tabledata text-center">{{$index + 1}}</td>
             <td class="col-xs-2 tabledata text-center">
-              <a href="#/drivers/{{driver.Driver.driverId}}">
+              <a href="" ng-click="navDriver(driver)">
               {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
               </a>
             </td>

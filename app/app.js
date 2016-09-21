@@ -9,7 +9,7 @@ angular.module('F1FeederApp', [
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $routeProvider.
-  	when("/drivers", {templateUrl: "partials/drivers.html", controller: "driversController"}).
-	when("/drivers/:id", {templateUrl: "partials/driver.html", controller: "driverController"}).
+  	when("/drivers", {templateUrl: "partials/drivers.html", controller: "driversController", reloadOnSearch: false}).
+	when("/drivers/:id", {templateUrl: "partials/driver.html", controller: "driverController", reloadOnSearch: false}).
 	otherwise({redirectTo: '/drivers'});
 }])
