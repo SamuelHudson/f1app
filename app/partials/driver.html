@@ -2,23 +2,27 @@
   <div>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-3 col-sm-12 tabledata"><a href="./#/drivers"><- Back to drivers list</a></div>
-      </div>    
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-          <img ng-show="driver" src="img/drivers/{{driver.Driver.driverId}}.png" id="driverimg"/>
-        </div>
+        <div class="col-md-3 col-sm-12 tabledata"><a href="./#/drivers"><- Back to drivers list</a>
       </div>
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-          <img ng-show="driver" src="img/flags/{{driver.Driver.nationality}}.png"/>          
-        </div>
+    </div>
+    <div class="row">
+      <div ng-include="'partials/season.html'"></div>
+    </div>    
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <img ng-show="driver" src="img/drivers/{{driver.Driver.driverId}}.png" id="driverimg"/>
       </div>
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-          <p class="text-center header">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</p>
-        </div>
-      </div>      
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <img ng-show="driver" src="img/flags/{{driver.Driver.nationality}}.png"/>          
+      </div>
+    </div>      
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <p class="text-center header">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</p>
+      </div>
+    </div>      
       <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
           <p class="text-center tabledata"> Country: {{driver.Driver.nationality}}<br/>
@@ -27,24 +31,39 @@
           <a href="{{driver.Driver.url}}" target="_blank">Biography</a></p>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-          <p class="text-center header">Formula 1 2013 Results</p>
-        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <p class="text-center header" ng-hide="races.length<1">Formula 1 Results</p>
       </div>
     </div>
+  </div>
+  <div class="row" ng-show="races.length<1">
+    <div class="col-lg-4 col-lg-offset-4">
+      <p class="text-center header">Select a season from the dropdown menu above!</p>
+    </div>
+  </div>
 </article>
-<table class="table" id="drivertable">
-  <tbody>
-    <tr>
-      <td class="text-center tabledata hidden-xs">Round</td> <td class="text-center tabledata">Grand Prix</td> <td class="text-center tabledata">Team</td> <td class="text-center tabledata">Grid</td> <td class="text-center tabledata">Race</td>
+<table class="table" id="drivertable">  
+    <thead>
+      <tr>
+        <th class="col-xs-2 text-center">Round</th>
+        <th class="col-xs-2 text-center">Grand Prix</th>
+        <th class="col-xs-2 text-center">Team</th>
+        <th class="col-xs-2 text-center">Grid</th>
+        <th class="col-xs-2 text-center">Race</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr ng-hide="races.length>0">
+      <td colspan="5" class="tabledata text-center">There is currently no data here.</td>
     </tr>
     <tr ng-repeat="race in races">
-      <td class="col-xs-1 col-xs-offset-5 hidden-xs text-center tabledata">{{race.round}}</td>
+      <td class="col-xs-2 col-xs-offset-5 hidden-xs text-center tabledata">{{race.round}}</td>
       <td class="col-xs-2 text-center tabledata"><img src="img/flags/{{race.Circuit.Location.country}}.png" class="hidden-xs"/>&nbsp;&nbsp;{{race.raceName}}</td>
       <td class="col-xs-2 text-center tabledata">{{race.Results[0].Constructor.name}}</td>
-      <td class="col-xs-1 text-center tabledata">{{race.Results[0].grid}}</td>
-      <td class="col-xs-1 text-center tabledata">{{race.Results[0].position}}</td>
+      <td class="col-xs-2 text-center tabledata">{{race.Results[0].grid}}</td>
+      <td class="col-xs-2 text-center tabledata">{{race.Results[0].position}}</td>
     </tr>
   </tbody>
 </table>

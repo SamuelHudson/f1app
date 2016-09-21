@@ -1,0 +1,7 @@
+<div ng-controller="seasonController" ng-init="init()">
+	<div class="row">
+        <div class="col-md-12 text-center">
+         <select ng-options="item as item.season for item in seasons" ng-model="SelectedYear" ng-change="onUpdateOfYear(SelectedYear)"></select>
+       </div>
+     </div>
+</div>

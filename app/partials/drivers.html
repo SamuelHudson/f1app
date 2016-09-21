@@ -5,22 +5,47 @@
         <div class="col-xs-4 col-xs-offset-4"><input type="text" ng-model="nameFilter" placeholder="Search by name..." class="form-control"/></div>
       </div>
       <div class="row">
+        <div ng-include="'partials/season.html'"></div>
+      </div>
+      <div class="row">
         <div class="col-xs-12">
-          <p class="text-center header">World Championship Table</p>
+          <p class="text-center header" ng-hide="driversList.length<1">World Championship Table</p>
+        </div>
+      </div>
+      <div class="row" ng-hide="driversList.length>0">
+        <div class="col-lg-4 col-lg-offset-4">
+          <p class="text-center header">Select a season from the dropdown menu above!</p>
+        </div>
+      </div>
+      <div class="row" ng-hide="driversList.length>0">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="jumbo">
+          <p class="text-center" id="jumboheader">Welcome to the F1App, your best tool for keeping up to date with F1 standings and historical data.</p>
         </div>
       </div>
       <table class="table">
-        <tbody>
+      <thead>
+        <tr>
+          <th class="col-xs-1 col-xs-offset-2 hidden-xs text-center"> </th>
+          <th class="col-xs-2 text-center">Position</th>
+          <th class="col-xs-2 text-center">Driver</th>
+          <th class="col-xs-2 text-center">Team</th>
+          <th class="col-xs-2 text-center">Points</th>
+        </tr>
+      </thead>
+        <tbody>        
           <tr ng-repeat="driver in driversList | filter: nameFilter">
-            <td class="col-xs-1 col-xs-offset-7 hidden-xs"><img src="/img/f1.ico" alt="F1 image." id="f1icon"></td>
-            <td class="col-xs-1 text-center tabledata">{{$index + 1}}</td>
-            <td class="col-xs-1 text-center tabledata">
+            <td class="col-xs-1 col-xs-offset-2 hidden-xs tabledata text-center"><img src="/img/f1.ico" alt="F1 image." id="f1icon"></td>
+            <td class="col-xs-2 tabledata text-center">{{$index + 1}}</td>
+            <td class="col-xs-2 tabledata text-center">
               <a href="#/drivers/{{driver.Driver.driverId}}">
               {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
               </a>
             </td>
-            <td class="col-xs-1 text-center tabledata">{{driver.Constructors[0].name}}</td>
-            <td class="col-xs-1 text-center tabledata">{{driver.points}}</td>        
+            <td class="col-xs-2 tabledata text-center">{{driver.Constructors[0].name}}</td>
+            <td class="col-xs-2 tabledata text-center">{{driver.points}}</td>        
+          </tr>
+          <tr ng-hide="driversList.length>0">
+            <td colspan="5" class="tabledata text-center">There is currently no data here.</td>
           </tr>
         </tbody>
       </table>

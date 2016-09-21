@@ -14,6 +14,14 @@ img {
 	width: 6%;
 }
 
+th {
+	font-family: "Arial Black";
+	color:#DB4C40;	
+	text-shadow: 3px 3px 3px #0F0F0F;
+	font-size: 1.50em;
+	font-style: oblique;
+}
+
 #driverimg {
 	display: block;
 	margin: auto;
@@ -45,6 +53,40 @@ img {
 	margin: auto;
 	font-size: 100%;
 	display: block;
+}
+
+#jumbo {
+	position: relative;
+	display: block;
+	margin: auto;
+	width: 100%;
+	font-family: "Arial Black";
+	color: #7798AB;
+	font-size: 100%;
+}
+
+#jumbo::after {
+	content: "";
+	background-image: url(/img/f1corners.jpg);
+	background-size: 100% 100%;
+	opacity: 0.1;
+	z-index: 2;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+#jumboheader {
+	color:#DB4C40;
+	text-shadow: 3px 3px 3px #0F0F0F;
+	font-family: "Arial Black";
+	font-size: 3.25em;
+	font-style: oblique;
+	z-index: 3;
+	padding: 15%;
+	opacity: 1.0;
 }
 
 #f1icon {
@@ -82,4 +124,3 @@ img {
 	color: #7798AB;
 	position: relative;
 }
-
